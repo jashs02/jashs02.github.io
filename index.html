@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jash Shah | Equity Research</title>
+  <meta name="description" content="Jash Shah — Rutgers Honors Finance and Mathematics student focused on equity research.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --text: #14213d;
+      --muted: #4b5563;
+      --border: #e5e2da;
+      --accent: #1e3a8a;
+      --accent-soft: #e0e7ff;
+      --gold: #b45309;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --surface: #111a2e;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --border: #1f2a44;
+        --accent: #93c5fd;
+        --accent-soft: #1e3a5f;
+        --gold: #fbbf24;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 900px; margin: 0 auto; padding: 14px 20px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .logo { font-family: 'Source Serif 4', Georgia, serif; font-weight: 700; font-size: 1.15rem; color: var(--text); }
+    .nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 64px 0; border-bottom: 1px solid var(--border); scroll-margin-top: 60px; }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--gold); margin-bottom: 24px;
+    }
+
+    /* ---------- Hero / Personal statement ---------- */
+    .hero { padding: 96px 0 72px; }
+    .hero h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1.1; margin-bottom: 20px;
+    }
+    .statement { font-size: clamp(1.1rem, 2.6vw, 1.35rem); color: var(--muted); max-width: 700px; }
+    .stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--text); }
+    .stat span { font-size: 0.85rem; color: var(--muted); }
+    .contact { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .btn {
+      padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+      border: 1px solid var(--border); color: var(--text); background: var(--surface);
+    }
+    .btn.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn:hover { text-decoration: none; opacity: 0.9; }
+
+    /* ---------- Skills ---------- */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .card h3 { font-size: 1.05rem; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: var(--accent-soft); color: var(--text);
+      padding: 4px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 500;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects { display: grid; gap: 20px; }
+    .project { padding: 26px; }
+    .project-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .project h3 { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.3rem; margin-bottom: 0; }
+    .meta { color: var(--muted); font-size: 0.9rem; }
+    .project p { color: var(--muted); margin: 12px 0 14px; }
+    .project ul, .exp-item ul { color: var(--muted); margin: 0 0 16px 20px; }
+    .project li, .exp-item li { margin-bottom: 4px; }
+    .project .tags { margin-bottom: 18px; }
+    .project-links { display: flex; gap: 20px; font-weight: 600; font-size: 0.95rem; flex-wrap: wrap; }
+
+    /* ---------- Experience ---------- */
+    .exp { display: grid; gap: 28px; }
+    .exp-item h3 { font-size: 1.05rem; }
+    .exp-item .meta { margin-bottom: 6px; }
+
+    /* ---------- Education ---------- */
+    .edu p { color: var(--muted); }
+    .edu strong { color: var(--text); }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 40px 20px; }
+
+    @media (max-width: 560px) {
+      .nav-links { gap: 14px; }
+      .nav-links li.optional { display: none; }
+      .hero { padding: 64px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">Jash Shah</a>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li class="optional"><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top">
+
+    <!-- ===== PERSONAL STATEMENT ===== -->
+    <section class="hero">
+      <h1>Jash Shah</h1>
+      <p class="statement">
+        Rutgers Honors Finance and Math student with private equity and equity research experience, building toward a front-office career in equity research.
+      </p>
+      <div class="stats">
+        <div class="stat"><strong>4.0</strong><span>GPA</span></div>
+        <div class="stat"><strong>4</strong><span>Stock pitches presented</span></div>
+        <div class="stat"><strong>1st</strong><span>Deloitte Case Competition</span></div>
+      </div>
+      <div class="contact" id="contact">
+        <a class="btn primary" href="mailto:jjs575@rutgers.edu">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/jashshah2/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Valuation &amp; Modeling</h3>
+          <div class="tags">
+            <span class="tag">3-Statement Modeling</span>
+            <span class="tag">DCF</span>
+            <span class="tag">Reverse DCF</span>
+            <span class="tag">Comparable Companies</span>
+            <span class="tag">Precedent Transactions</span>
+            <span class="tag">Sensitivity Analysis</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Equity Research</h3>
+          <div class="tags">
+            <span class="tag">Investment Thesis Writing</span>
+            <span class="tag">Stock Pitching</span>
+            <span class="tag">Industry Analysis</span>
+            <span class="tag">Market Research</span>
+            <span class="tag">Due Diligence</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Bloomberg Terminal</span>
+            <span class="tag">PowerPoint</span>
+            <span class="tag">PitchBook</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Certifications &amp; Languages</h3>
+          <div class="tags">
+            <span class="tag">Financial &amp; Quantitative Modeling (UPenn)</span>
+            <span class="tag">Bloomberg Market Concepts</span>
+            <span class="tag">Gujarati</span>
+            <span class="tag">Hindi</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="card project">
+          <div class="project-head">
+            <h3>Corning (NYSE: GLW) — Model &amp; Equity Note</h3>
+            <span class="meta">Rutgers Student Managed Fund · 2026</span>
+          </div>
+          <p>An equity research note and full financial model on Corning, arguing that AI-driven demand for optical networking is re-rating the company from a cyclical glassmaker into an AI infrastructure supplier.</p>
+          <ul>
+            <li>Model with 2020–2025 actuals, 2026 by quarter, and forecasts through 2030, built from Corning's 10-K</li>
+            <li>Revenue built segment by segment across 7 business lines with bear, base and bull cases</li>
+            <li>Thesis covers hyperscaler long-term agreements, the Springboard growth plan and domestic manufacturing</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Financial Modeling</span><span class="tag">Equity Research</span><span class="tag">Excel</span>
+          </div>
+          <div class="project-links">
+            <a href="projects/GLW-Equity-Note.pdf" target="_blank" rel="noopener">Read the note →</a>
+            <a href="projects/GLW-Model.xlsx">Download the model →</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-head">
+            <h3>JPMorgan Chase (NYSE: JPM) — BUY Pitch</h3>
+            <span class="meta">Rutgers Student Managed Fund · 2025–2026</span>
+          </div>
+          <p>A BUY-rated report on JPMorgan Chase making the case that its operating efficiency and returns on capital justify a premium to peer banks.</p>
+          <ul>
+            <li>Efficiency ratio comparisons against large-cap bank peers</li>
+            <li>Return on tangible common equity (ROTCE) analysis</li>
+            <li>Valuation supported by sell-side research and comparable companies</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Bank Valuation</span><span class="tag">Comps</span><span class="tag">PowerPoint</span>
+          </div>
+          <div class="project-links">
+            <a href="projects/JPM-Pitch.pdf" target="_blank" rel="noopener">View the pitch →</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="project-head">
+            <h3>TopCricketStore</h3>
+            <span class="meta">Co-founder · 2021–present</span>
+          </div>
+          <p>A multi-sport retail and e-commerce business I co-founded and grew using data-driven inventory, margin and marketing decisions.</p>
+          <ul>
+            <li>400%+ top-line growth through inventory and margin optimization</li>
+            <li>11M+ search impressions at a 12% click-through rate from automated SEO</li>
+            <li>~30% lower customer acquisition cost and 350%+ year-over-year organic traffic growth</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">E-commerce</span><span class="tag">Unit Economics</span><span class="tag">Google Analytics</span>
+          </div>
+          <div class="project-links">
+            <a href="https://topcricketstore.com" target="_blank" rel="noopener">Visit the store →</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="exp">
+        <div class="exp-item">
+          <h3>Private Equity Intern — Astor Realty Capital</h3>
+          <p class="meta">New York, NY · May 2026 – Aug 2026</p>
+          <ul>
+            <li>Researched acquisition opportunities across sponsor and deal types</li>
+            <li>Built competitive market analyses that fed due diligence and bid pricing</li>
+            <li>Maintained the pipeline of active targets, tracking pricing trends and ownership changes</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <h3>Equity Research Intern — Forte Capital Group</h3>
+          <p class="meta">New York, NY · Sept 2025 – Mar 2026</p>
+          <ul>
+            <li>Produced 3 equity research reports on public and private companies using PitchBook</li>
+            <li>Presented a BUY-rated pitch on Anthropic to firm partners and high-net-worth investors</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <h3>Junior Analyst — Rutgers Student Managed Fund</h3>
+          <p class="meta">New Brunswick, NJ · Sept 2025 – Present</p>
+          <ul>
+            <li>Builds DCF, comparable company and precedent transaction models to support stock recommendations</li>
+            <li>Completed a 10-week bootcamp in Excel modeling, equity research and pitch building</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <h3>Stock Pitch Competitions — Meridian AI &amp; Bender Trust</h3>
+          <p class="meta">New Brunswick, NJ · Oct 2025 – May 2026</p>
+          <ul>
+            <li><strong>Chipotle (CMG):</strong> BUY thesis built on unit economics, with a revenue model from unit and same-store sales growth and a reverse DCF</li>
+            <li><strong>UnitedHealth (UNH):</strong> 5-year three-statement model with bear, base and bull cases, defended before a committee including a Neuberger Berman MD</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <h3>Director of Venture Capital — Rutgers Net Impact VC Program</h3>
+          <p class="meta">New Brunswick, NJ · Sept 2025 – Present</p>
+          <ul>
+            <li>Trains incoming cohorts in sourcing, valuation and term sheets</li>
+            <li>Pitched a startup to partners at Base10 and Kleiner Perkins</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="edu">
+      <h2>Education</h2>
+      <div class="card">
+        <h3>Rutgers University – Honors College</h3>
+        <p class="meta">BS Finance and Mathematics · Expected May 2029</p>
+        <p style="margin-top:10px"><strong>GPA 4.0/4.0</strong> · Dean's Scholarship · Dean's List (all semesters) · Deloitte Case Competition, 1st Place</p>
+        <p style="margin-top:6px">Coursework: Financial Accounting, Linear Algebra, Multivariable Calculus, Supply Chain Management</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Jash Shah
+  </footer>
+
+</body>
+</html>
